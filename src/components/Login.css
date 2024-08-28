@@ -10,6 +10,7 @@ html, body {
   padding: 0;
 }
 
+/* ログイン画面全体 */
 .login-container {
     display: flex;
     flex-direction: column;
@@ -20,6 +21,7 @@ html, body {
     margin-top: 0px;
   }
   
+  /* ヘッダ */
   .header {
     position: fixed; /* 固定表示 */
     top: 0px; /* 画面の最上部に配置 */
@@ -34,7 +36,14 @@ html, body {
     align-items: center; /* 縦方向の中央揃え */
     z-index: 1000; /* 他の要素よりも前面に表示 */
   }
+
+  /* ヘッダの「DocuHub」 */
+  .header h1 {
+    font-size: 24px;
+    font-weight: bold;
+  }
   
+  /* ログインのボックスコンポーネント */
   .login-box {
     background-color: white;
     padding: 20px;
@@ -49,6 +58,7 @@ html, body {
     text-align: center;
     margin-bottom: 20px;
     font-size: 28px;
+    font-weight: bold;
   }
   
   /* ラベル + テキストボックス */
@@ -59,7 +69,7 @@ html, body {
   /* ラベル */
   .input-group label {
     display: block;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 5px;
     text-align: left;
   }
@@ -80,7 +90,7 @@ html, body {
     border-radius: 5px;
     background-color: #5C6BC0;
     color: white;
-    font-size: 20px;
+    font-size: 16px; /* ボタンラベル */
     cursor: pointer;
     display: flex;
     align-items: center; /* 上下中央揃え */
