@@ -1,24 +1,38 @@
-import React from 'react';
-import SearchBar from './components/SearchBar';
-import DashboardItem from './components/DashboardItem';
+'use client';
+
+import React, { useState } from 'react';
+import TopBar from './TopBar';
+import SearchBar from './SearchBar';
+import DashboardItem from './DashboardItem';
+import UploadModal from './UploadModal';
+import './Dashboard.css';
 
 function Dashboard() {
-    return (
-        <div className="dashboard-container">
-            <header className="header">
-                <h1>DocuHub</h1>
-                <button className="logout-button">ログアウト</button>
-            </header>
-            <h2>ダッシュボード</h2>
-            <SearchBar />
-            <div className="dashboard-items">
-                <DashboardItem title="Wiki" icon="icon-path-here" />
-                <DashboardItem title="議事録" icon="icon-path-here" />
-                <DashboardItem title="アップロード" icon="icon-path-here" />
-                <DashboardItem title="設定" icon="icon-path-here" disabled />
-            </div>
-        </div>
-    );
+  const [isUploadModalOpen, setUploadModalOpen] = useState(false);
+
+  const handleUploadButtonClick = () => {
+    setUploadModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setUploadModalOpen(false);
+  };
+
+  return (
+    <div className="dashboard-container">
+      <TopBar isLoggedIn={true} />  {/* ダッシュボードではログアウトボタンを表示 */}
+        <h2>ダッシュボード</h2>
+          <SearchBar placeholder="アプリ内を検索..." />
+          <div className="dashboard-items">
+            <DashboardItem title="Wiki" icon="wiki-icon.png" disabled /*link="/wiki" *//>
+            <DashboardItem title="議事録" icon="minutes-icon.png" link="/minutes" />
+            <DashboardItem title="アップロード" icon="upload-icon.png" onClick={handleUploadButtonClick} />
+            <DashboardItem title="設定" icon="settings-icon.png" disabled />
+          </div>
+
+          {isUploadModalOpen && <UploadModal onClose={handleCloseModal} />}
+    </div>
+  );
 }
 
 export default Dashboard;
