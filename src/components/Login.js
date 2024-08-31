@@ -1,12 +1,11 @@
 import React from 'react';
+import TopBar from './TopBar';
 import './Login.css';
 
 function Login() {
   return (
     <div className="login-container">
-      <header className="header">
-        <h1>DocuHub</h1>
-      </header>
+      <TopBar isLoggedIn={false} />  {/* ログイン画面ではログアウトボタンを表示しない */}
       <div className="login-box">
         <h2>ログイン</h2>
         <form>
