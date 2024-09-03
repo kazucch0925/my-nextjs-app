@@ -2,6 +2,16 @@
 const nextConfig = {
     trailingSlash: true,
     output: 'export',
-};
-
-export default nextConfig;
+    async redirects() {
+      return [
+        {
+          source: '/',
+          destination: '/login',
+          permanent: true,
+        },
+      ]
+    },
+  };
+  
+  export default nextConfig;
+  
