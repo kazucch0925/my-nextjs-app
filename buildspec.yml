@@ -12,11 +12,10 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - npm run export
-      - aws s3 sync out/ s3://docuhub-front-app --delete
+      - aws s3 sync .next/ s3://docuhub-front-app --delete
 
 artifacts:
   files:
     - '**/*'
-  base-directory: out
+  base-directory: .next
   discard-paths: yes
