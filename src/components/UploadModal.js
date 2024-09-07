@@ -1,6 +1,16 @@
+import { Amplify } from 'aws-amplify';
+import awsExports from '../aws-exports';
+
+Amplify.configure(awsExports);
+console.log('Amplify has been configured:', awsExports);
+
 import React, { useState } from 'react';
 import Button from './Button.js'
+import { useAuth } from '@aws-amplify/ui-react';
+import { Storage } from '@aws-amplify/storage';
 import './UploadModal.css';
+
+console.log("Storge=" + Storage);
 
 function UploadModal({ onClose }) {
   const [files, setFiles] = useState([]);
@@ -9,12 +19,21 @@ function UploadModal({ onClose }) {
     setFiles([...files, ...Array.from(event.target.files)]);
   };
 
-  const handleUpload = () => {
+  const handleUpload = async () => {
     if (files.length > 0) {
-      // ここにアップロード処理を追加
-      console.log('Uploading:', files);
-      // アップロード成功後、モーダルを閉じるなどの処理を追加
-      onClose();
+      try {
+        for (let file of files) {
+          // S3にアップロード
+          await Storage.put(file.name, file, {
+            contentType: file.type, // ファイルのMIMEタイプを設定
+          });
+          console.log('${file.name} has been uploaded.');
+        }
+        // アップロード成功後、モーダルを閉じる
+        onClose();
+      } catch (error) {
+        console.error("Error uploading files: ", error);
+      }
     }
   };
 

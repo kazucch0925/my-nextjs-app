@@ -1,10 +1,17 @@
 'use client';
 
+import { Amplify } from 'aws-amplify';
+import awsExports from '../aws-exports';
+
+Amplify.configure(awsExports);
+console.log('Amplify has been configured:', awsExports);
+
 import React, { useState } from 'react';
 import TopBar from './TopBar';
 import SearchBar from './SearchBar';
 import DashboardItem from './DashboardItem';
 import UploadModal from './UploadModal';
+import { Storage } from '@aws-amplify/storage';
 import './Dashboard.css';
 
 function Dashboard() {

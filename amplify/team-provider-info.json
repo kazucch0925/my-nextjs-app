@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-docuhub-dev-ac90c-authRole",
+      "UnauthRoleArn": "arn:aws:iam::381491863936:role/amplify-docuhub-dev-ac90c-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::381491863936:role/amplify-docuhub-dev-ac90c-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-docuhub-dev-ac90c-deployment",
+      "UnauthRoleName": "amplify-docuhub-dev-ac90c-unauthRole",
+      "StackName": "amplify-docuhub-dev-ac90c",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:381491863936:stack/amplify-docuhub-dev-ac90c/4de3a3f0-6ad4-11ef-bdb4-0af627121f01",
+      "AmplifyAppId": "dqtgtlp85as34"
+    },
+    "categories": {
+      "auth": {
+        "docuhubc5cff1c7": {}
+      },
+      "storage": {
+        "docuhubMinutesStorage": {}
+      }
+    }
+  }
+}

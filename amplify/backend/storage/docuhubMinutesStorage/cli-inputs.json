@@ -1,0 +1,14 @@
+{
+  "resourceName": "docuhubMinutesStorage",
+  "policyUUID": "2777d9a0",
+  "bucketName": "docuhub42fc54f42f5b49d6b7fcf8d6a643707d",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
